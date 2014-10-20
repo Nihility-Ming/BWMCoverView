@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Bwmcoverview by Nihility-Ming</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Bwmcoverview</h1>
+        <p>BWM出品的用于快速简便地创建UIScrollView和UIPageControl的图片展示封面，支持循环滚动，动画，异步加载图片等功能。</p>
+
+        <p class="view"><a href="https://github.com/Nihility-Ming/BWMCoverView">View the Project on GitHub <small>Nihility-Ming/BWMCoverView</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Nihility-Ming/BWMCoverView/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Nihility-Ming/BWMCoverView/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Nihility-Ming/BWMCoverView">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a name="%E7%AE%80%E4%BB%8B" class="anchor" href="#%E7%AE%80%E4%BB%8B"><span class="octicon octicon-link"></span></a>简介</h3>
+
+<p>BWM出品的用于快速简便地创建UIScrollView和UIPageControl的图片展示封面
+支持循环滚动，动画，异步加载图片，等功能。</p>
+
+<h3>
+<a name="%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8" class="anchor" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8"><span class="octicon octicon-link"></span></a>如何使用</h3>
+
+<p>快速创建BWMCoverView
+models是一个包含图片地址的数组
+placeholderImageNamed为图片加载前的本地占位图片名</p>
+
+<hr>
+
+<p>BWMCoverView *coverView = [BWMCoverView coverViewWithModels:realArray
+                                        andFrame:CGRectMake(10, 50, 300, 400) 
+                                        andPlaceholderImageNamed:@"defaultImage" 
+                                        andClickdCallBlock:^(NSInteger index) {
+                                            NSLog(@"你选择了第%d个图片", index);
+                          }];</p>
+
+<p>// 请打开下面的东西逐个调试
+// [coverView setAutoPlayWithDelay:3.0]; // 设置自动播放
+// [coverView stopAutoPlayWithBOOL:YES]; // 停止自动播放
+// [coverView stopAutoPlayWithBOOL:NO]; // 恢复开启自动播放
+// [coverView setAnimationOption:UIViewAnimationOptionTransitionCurlUp]; // 设置切换动画</p>
+
+<p>[self.view addSubview:coverView];</p>
+
+<h3>
+<a name="%E8%81%94%E7%B3%BB%E6%88%91" class="anchor" href="#%E8%81%94%E7%B3%BB%E6%88%91"><span class="octicon octicon-link"></span></a>联系我</h3>
+
+<p><a href="mailto:weiming.bi@yahoo.com">weiming.bi@yahoo.com</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Nihility-Ming">Nihility-Ming</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
