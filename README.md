@@ -4,10 +4,10 @@ BWMCoverView
 BWM出品的用于快速简便地创建UIScrollView和UIPageControl的图片展示封面，支持循环滚动，动画，异步加载图片等功能。
 
 /**
-     * 快速创建BWMCoverView
-     * models是一个包含图片地址的数组
-     * placeholderImageNamed为图片加载前的本地占位图片名
-     */
+ * 快速创建BWMCoverView
+ * models是一个包含图片地址的数组
+ * placeholderImageNamed为图片加载前的本地占位图片名
+ */
     BWMCoverView *coverView = [BWMCoverView coverViewWithModels:realArray andFrame:CGRectMake(10, 50, 300, 400) andPlaceholderImageNamed:@"defaultImage" andClickdCallBlock:^(NSInteger index) {
         NSLog(@"你选择了第%d个图片", index);
     }];
