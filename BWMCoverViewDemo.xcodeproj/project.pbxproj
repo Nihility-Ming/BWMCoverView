@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		04533AB319F661EF001FC66D /* BWMCoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04533AB219F661EF001FC66D /* BWMCoverViewModel.m */; };
+		04D5496B19F916D200728C77 /* BWMCoverViewDefaultLoadingImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D5496A19F916D200728C77 /* BWMCoverViewDefaultLoadingImage.png */; };
 		AB10A75719F35A9500E93C1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB10A75619F35A9500E93C1E /* Foundation.framework */; };
 		AB10A75919F35A9500E93C1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB10A75819F35A9500E93C1E /* CoreGraphics.framework */; };
 		AB10A75B19F35A9500E93C1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB10A75A19F35A9500E93C1E /* UIKit.framework */; };
@@ -21,7 +22,6 @@
 		AB10A77A19F35A9600E93C1E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB10A77819F35A9600E93C1E /* InfoPlist.strings */; };
 		AB10A77C19F35A9600E93C1E /* BWMCoverViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10A77B19F35A9600E93C1E /* BWMCoverViewDemoTests.m */; };
 		AB10A78719F35AAD00E93C1E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10A78619F35AAD00E93C1E /* ViewController.m */; };
-		AB10A7C619F3655600E93C1E /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AB10A7C519F3655600E93C1E /* defaultImage.png */; };
 		AB10A84819F380FB00E93C1E /* BWMCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB10A84719F380FB00E93C1E /* BWMCoverView.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,7 @@
 /* Begin PBXFileReference section */
 		04533AB119F661EF001FC66D /* BWMCoverViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMCoverViewModel.h; sourceTree = "<group>"; };
 		04533AB219F661EF001FC66D /* BWMCoverViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMCoverViewModel.m; sourceTree = "<group>"; };
+		04D5496A19F916D200728C77 /* BWMCoverViewDefaultLoadingImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BWMCoverViewDefaultLoadingImage.png; sourceTree = "<group>"; };
 		AB10A75319F35A9500E93C1E /* BWMCoverViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWMCoverViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB10A75619F35A9500E93C1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AB10A75819F35A9500E93C1E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,7 +57,6 @@
 		AB10A77B19F35A9600E93C1E /* BWMCoverViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BWMCoverViewDemoTests.m; sourceTree = "<group>"; };
 		AB10A78519F35AAD00E93C1E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		AB10A78619F35AAD00E93C1E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		AB10A7C519F3655600E93C1E /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		AB10A7C719F365E700E93C1E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AB10A84619F380FB00E93C1E /* BWMCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMCoverView.h; sourceTree = "<group>"; };
 		AB10A84719F380FB00E93C1E /* BWMCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMCoverView.m; sourceTree = "<group>"; };
@@ -134,7 +134,6 @@
 		AB10A75D19F35A9500E93C1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AB10A7C519F3655600E93C1E /* defaultImage.png */,
 				AB10A75E19F35A9500E93C1E /* BWMCoverViewDemo-Info.plist */,
 				AB10A75F19F35A9500E93C1E /* InfoPlist.strings */,
 				AB10A76219F35A9500E93C1E /* main.m */,
@@ -168,6 +167,7 @@
 				AB10A84719F380FB00E93C1E /* BWMCoverView.m */,
 				04533AB119F661EF001FC66D /* BWMCoverViewModel.h */,
 				04533AB219F661EF001FC66D /* BWMCoverViewModel.m */,
+				04D5496A19F916D200728C77 /* BWMCoverViewDefaultLoadingImage.png */,
 			);
 			name = class;
 			sourceTree = "<group>";
@@ -247,8 +247,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D5496B19F916D200728C77 /* BWMCoverViewDefaultLoadingImage.png in Resources */,
 				AB10A76119F35A9500E93C1E /* InfoPlist.strings in Resources */,
-				AB10A7C619F3655600E93C1E /* defaultImage.png in Resources */,
 				AB10A76919F35A9500E93C1E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

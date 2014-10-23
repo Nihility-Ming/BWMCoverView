@@ -6,23 +6,25 @@
 //  Copyright (c) 2014年 BWM. All rights reserved.
 //
 
+
 #import "BWMCoverView.h"
 
 @interface UIImageView(BWMImage)
 
-- (void)setImageWithURLString:(NSString *)urlString placeholderImageNamed:(NSString *)placeholderImageNamed;
+- (void)setImageWithURLString:(NSString *)urlString placeholderImageNamed:(NSString *)placeholderImageNamed contentMode:(UIViewContentMode)contentMode;
 
 @end
 
 @implementation UIImageView(BWMImage)
 
-- (void)setImageWithURLString:(NSString *)urlString placeholderImageNamed:(NSString *)placeholderImageNamed
+- (void)setImageWithURLString:(NSString *)urlString placeholderImageNamed:(NSString *)placeholderImageNamed contentMode:(UIViewContentMode)contentMode
 {
     self.image = [UIImage imageNamed:placeholderImageNamed];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]];
         if (imageData.length>0) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                self.contentMode = contentMode;
                 [UIView animateWithDuration:0.2 animations:^{
                     self.alpha = 0.0;
                 } completion:^(BOOL finished) {
@@ -65,6 +67,7 @@
 - (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        self.imageViewsContentMode = UIViewContentModeScaleToFill;
         [self createUI];
     }
     return self;
@@ -124,6 +127,7 @@
         }
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height)];
         imageView.userInteractionEnabled = YES;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.tag = i-1;
         
         // 默认执行SDWebImage的缓存方法
@@ -132,7 +136,7 @@
         }
         else
         {
-            [imageView setImageWithURLString:model.imageURLString placeholderImageNamed:_placeholderImageNamed];
+            [imageView setImageWithURLString:model.imageURLString placeholderImageNamed:_placeholderImageNamed contentMode:_imageViewsContentMode];
         }
         [_scrollView addSubview:imageView];
         

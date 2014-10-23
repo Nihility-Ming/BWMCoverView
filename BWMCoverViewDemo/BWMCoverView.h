@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BWMCoverViewModel.h"
 
+// 加载前的本地图片占位符，此为图片文件名
+#define BWMCoverViewDefaultImage @"BWMCoverViewDefaultLoadingImage"
+
 /**
  * BWM出品的用于创建UIScrollView和UIPageControl的图片展示封面
  * 支持循环滚动，动画，异步加载图片
@@ -25,6 +28,7 @@
 @property (nonatomic, copy) void(^callBlock)(NSInteger); // 点击后的调用的block
 @property (nonatomic, copy) void(^scrollViewCallBlock)(NSInteger); // 视图滚动后回调
 @property (nonatomic, assign) UIViewAnimationOptions animationOption; // 动画选项（可选）
+@property (nonatomic, assign) UIViewContentMode imageViewsContentMode; // 图片的内容模式，默认为UIViewContentModeScaleToFill
 
 - (id)initWithModels:(NSArray *)models andFrame:(CGRect)frame;
 
