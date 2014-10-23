@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04533AB319F661EF001FC66D /* BWMCoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04533AB219F661EF001FC66D /* BWMCoverViewModel.m */; };
 		AB10A75719F35A9500E93C1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB10A75619F35A9500E93C1E /* Foundation.framework */; };
 		AB10A75919F35A9500E93C1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB10A75819F35A9500E93C1E /* CoreGraphics.framework */; };
 		AB10A75B19F35A9500E93C1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB10A75A19F35A9500E93C1E /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04533AB119F661EF001FC66D /* BWMCoverViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWMCoverViewModel.h; sourceTree = "<group>"; };
+		04533AB219F661EF001FC66D /* BWMCoverViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWMCoverViewModel.m; sourceTree = "<group>"; };
 		AB10A75319F35A9500E93C1E /* BWMCoverViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BWMCoverViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB10A75619F35A9500E93C1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AB10A75819F35A9500E93C1E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -163,6 +166,8 @@
 			children = (
 				AB10A84619F380FB00E93C1E /* BWMCoverView.h */,
 				AB10A84719F380FB00E93C1E /* BWMCoverView.m */,
+				04533AB119F661EF001FC66D /* BWMCoverViewModel.h */,
+				04533AB219F661EF001FC66D /* BWMCoverViewModel.m */,
 			);
 			name = class;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				AB10A78719F35AAD00E93C1E /* ViewController.m in Sources */,
 				AB10A76719F35A9500E93C1E /* AppDelegate.m in Sources */,
 				AB10A76319F35A9500E93C1E /* main.m in Sources */,
+				04533AB319F661EF001FC66D /* BWMCoverViewModel.m in Sources */,
 				AB10A84819F380FB00E93C1E /* BWMCoverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

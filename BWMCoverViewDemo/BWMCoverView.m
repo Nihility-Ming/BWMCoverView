@@ -92,8 +92,13 @@
     
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height-20, self.frame.size.width, 20)];
     _pageControl.userInteractionEnabled = YES;
-    _pageControl.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
+    _pageControl.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
     [self addSubview:_pageControl];
+    
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, self.frame.size.height-20, self.frame.size.width-10, 20)];
+    _titleLabel.textColor = [UIColor whiteColor];
+    _titleLabel.font = [UIFont boldSystemFontOfSize:14.0f];
+    [self addSubview:_titleLabel];
     
 }
 
@@ -102,7 +107,13 @@
 {
     _scrollView.contentSize = CGSizeMake((_models.count+2)*_scrollView.frame.size.width, _scrollView.frame.size.height);
     _scrollView.contentOffset = CGPointMake(self.frame.size.width, 0);
-    NSString *model = nil;
+    
+    // 清除所有滚动视图
+    for (UIView *view in _scrollView.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    BWMCoverViewModel *model = nil;
     for (int i = 0; i<_models.count+2; i++) {
         if (i == 0) {
             model = [_models lastObject];
@@ -114,7 +125,15 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*_scrollView.frame.size.width, 0, _scrollView.frame.size.width, _scrollView.frame.size.height)];
         imageView.userInteractionEnabled = YES;
         imageView.tag = i-1;
-        [imageView setImageWithURLString:model placeholderImageNamed:_placeholderImageNamed];
+        
+        // 默认执行SDWebImage的缓存方法
+        if ([imageView respondsToSelector:@selector(setImageWithURL:placeholderImage:)]) {
+            [imageView performSelector:@selector(setImageWithURL:placeholderImage:) withObject:[NSURL URLWithString:model.imageURLString] withObject:[UIImage imageNamed:_placeholderImageNamed]];
+        }
+        else
+        {
+            [imageView setImageWithURLString:model.imageURLString placeholderImageNamed:_placeholderImageNamed];
+        }
         [_scrollView addSubview:imageView];
         
         if (i>0 &&i<_models.count+1) {
@@ -122,9 +141,20 @@
             [imageView addGestureRecognizer:tap];
         }
     }
+    
+    // 设置titleLabel和pageControl的相关内容数据
+    if (_models.count>0) {
+        _titleLabel.text = ((BWMCoverViewModel *)_models[0]).imageTitle;
 
-    _pageControl.numberOfPages = _models.count;
-    [_pageControl addTarget:self action:@selector(pageControlClicked:) forControlEvents:UIControlEventValueChanged];
+        _pageControl.numberOfPages = _models.count;
+        [_pageControl addTarget:self action:@selector(pageControlClicked:) forControlEvents:UIControlEventValueChanged];
+    }
+    
+    // 先执行一次这个方法
+    if (_scrollViewCallBlock != nil)
+    {
+        _scrollViewCallBlock(0);
+    }
 }
 
 // 图片轻敲手势事件
@@ -140,12 +170,6 @@
 - (void)pageControlClicked:(UIPageControl *)pageControl
 {
     [self scrollViewScrollToPageIndex:pageControl.currentPage+1];
-}
-
-// 回调块的setter
-- (void)setCallBlock:(void (^)(NSInteger index))callBlock
-{
-    _callBlock = [callBlock copy];
 }
 
 // 设置自动播放
@@ -209,6 +233,13 @@
     }
 }
 
+
+- (void)setScrollViewCallBlock:(void (^)(NSInteger index))scrollViewCallBlock
+{
+    _scrollViewCallBlock = [scrollViewCallBlock copy];
+    _scrollViewCallBlock(0);
+}
+
 #pragma mark-
 #pragma mark- UIScrollViewDelegate
 
@@ -226,16 +257,26 @@
     if (scrollView.contentOffset.x == 0) {
         scrollView.contentOffset = CGPointMake(scrollView.contentSize.width-2*scrollView.frame.size.width, 0);
         
-    } else if(scrollView.contentOffset.x == scrollView.contentSize.width-scrollView.frame.size.width) {
+    } else if(scrollView.contentOffset.x >= scrollView.contentSize.width-scrollView.frame.size.width) {
         scrollView.contentOffset = CGPointMake(scrollView.frame.size.width, 0);
     }
     
     int currentPage = scrollView.contentOffset.x/self.frame.size.width-1;
     _pageControl.currentPage = currentPage;
     
+    // 设置titleLabel
+    if (_models.count>0) {
+        _titleLabel.text = ((BWMCoverViewModel *)_models[currentPage]).imageTitle;
+    }
+    
     // 恢复自动播放
     if ([_timer isValid]) {
         [_timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:_second]];
+    }
+    
+    if(_scrollViewCallBlock != nil)
+    {
+        _scrollViewCallBlock(currentPage);
     }
 }
 

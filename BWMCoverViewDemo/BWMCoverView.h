@@ -7,24 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BWMCoverViewModel.h"
+
 /**
  * BWM出品的用于创建UIScrollView和UIPageControl的图片展示封面
  * 支持循环滚动，动画，异步加载图片
  */
 @interface BWMCoverView : UIView <UIScrollViewDelegate>
 
+// 主要的可视化控件
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) NSArray *models; // 一个包含图片地址字符串的数组
+@property (nonatomic, strong) UILabel *titleLabel;
+
+@property (nonatomic, strong) NSArray *models; // 一个包含BWMCoverModel的数组
 @property (nonatomic, copy) NSString *placeholderImageNamed; // 图片载入前的本地占位图片名字符串
 @property (nonatomic, copy) void(^callBlock)(NSInteger); // 点击后的调用的block
+@property (nonatomic, copy) void(^scrollViewCallBlock)(NSInteger); // 视图滚动后回调
 @property (nonatomic, assign) UIViewAnimationOptions animationOption; // 动画选项（可选）
 
 - (id)initWithModels:(NSArray *)models andFrame:(CGRect)frame;
 
 /**
  * 快速创建BWMCoverView
- * @param models是一个包含图片地址的数组
+ * @param models是一个包含BWMCoverModel的数组
  * @param placeholderImageNamed为图片加载前的本地占位图片名
  */
 + (id)coverViewWithModels:(NSArray *)models andFrame:(CGRect)frame andPlaceholderImageNamed:(NSString *)placeholderImageNamed andClickdCallBlock:(void (^)(NSInteger index))callBlock;
@@ -35,6 +41,9 @@
 
 /** 设置图片点击后的块回调 */
 - (void)setCallBlock:(void (^)(NSInteger index))callBlock;
+
+/** 视图滚动后的回调 */
+- (void)setScrollViewCallBlock:(void (^)(NSInteger index))scrollViewCallBlock;
 
 /** 设置自动播放 */
 - (void)setAutoPlayWithDelay:(NSTimeInterval)second;
