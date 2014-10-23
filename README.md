@@ -1,65 +1,68 @@
-BWMCoverView
-============
+// 此数组用来保存BWMCoverViewModel
+NSMutableArray *realArray = [[NSMutableArray alloc] init];
 
-BWM出品的用于快速简便地创建UIScrollView和UIPageControl的图片展示封面，支持循环滚动，动画，异步加载图片等功能。
+for (int i = 0; i<5; i++) {
+    NSString *imageStr = [NSString stringWithFormat:@"http://www.iphone567.com/wp-content/uploads/2014/10/image0%d.jpg", i+1];
+    NSString *imageTitle = [NSString stringWithFormat:@"第%d个小猫", i+1];
+    BWMCoverViewModel *model = [[BWMCoverViewModel alloc] initWithImageURLString:imageStr imageTitle:imageTitle];
+    [realArray addObject:model];
+}
 
-*快速创建BWMCoverView
-*models是一个包含图片地址的数组
-*placeholderImageNamed为图片加载前的本地占位图片名
+// 以上代码只为了构建一个包含BWMCoverViewModel的数组而已——realArray
 
-    BWMCoverView *coverView = [BWMCoverView coverViewWithModels:realArray andFrame:CGRectMake(10, 50, 300, 400) andPlaceholderImageNamed:@"defaultImage" andClickdCallBlock:^(NSInteger index) {
-        NSLog(@"你选择了第%d个图片", index);
-    }];
-    
-    // 请打开下面的东西逐个调试
-    // [coverView setAutoPlayWithDelay:3.0]; // 设置自动播放
-    // [coverView stopAutoPlayWithBOOL:YES]; // 停止自动播放
-    // [coverView stopAutoPlayWithBOOL:NO]; // 恢复开启自动播放
-    // [coverView setAnimationOption:UIViewAnimationOptionTransitionCurlUp]; // 设置切换动画
-    
-    [self.view addSubview:coverView];
 
-*接口
-BWM出品的用于创建UIScrollView和UIPageControl的图片展示封面
-支持循环滚动，动画，异步加载图片
-
-@interface BWMCoverView : UIView <UIScrollViewDelegate>
-
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) NSArray *models; // 一个包含图片地址字符串的数组
-@property (nonatomic, copy) NSString *placeholderImageNamed; // 图片载入前的本地占位图片名字符串
-@property (nonatomic, copy) void(^callBlock)(NSInteger); // 点击后的调用的block
-@property (nonatomic, assign) UIViewAnimationOptions animationOption; // 动画选项（可选）
-
-- (id)initWithModels:(NSArray *)models andFrame:(CGRect)frame;
-
+/**
  * 快速创建BWMCoverView
- * @param models是一个包含图片地址的数组
- * @param placeholderImageNamed为图片加载前的本地占位图片名
-+ (id)coverViewWithModels:(NSArray *)models andFrame:(CGRect)frame andPlaceholderImageNamed:(NSString *)placeholderImageNamed andClickdCallBlock:(void (^)(NSInteger index))callBlock;
+ * models是一个包含BWMCoverViewModel的数组
+ * placeholderImageNamed为图片加载前的本地占位图片名
+ */
+BWMCoverView *coverView = [BWMCoverView coverViewWithModels:realArray andFrame:self.view.frame andPlaceholderImageNamed:BWMCoverViewDefaultImage andClickdCallBlock:^(NSInteger index) {
+    NSLog(@"你点击了第%d个图片", index);
+}];
+[self.view addSubview:coverView];
+
+// 只需以上两句即可创建BWMCoverView了，也可以继续往下看，自定义更多效果
+
+// 滚动视图每一次滚动都会回调此方法
+[coverView setScrollViewCallBlock:^(NSInteger index) {
+    NSLog(@"当前滚动到第%d个页面", index);
+}];
+
+// 请打开下面的东西逐个调试
+[coverView setAutoPlayWithDelay:3.0]; // 设置自动播放
+coverView.imageViewsContentMode = UIViewContentModeScaleAspectFit; // 图片显示内容模式模式
+// [coverView stopAutoPlayWithBOOL:YES]; // 停止自动播放
+// [coverView stopAutoPlayWithBOOL:NO]; // 恢复自动播放
+// [coverView setAnimationOption:UIViewAnimationOptionTransitionCurlUp]; // 设置切换动画
+// coverView.titleLabel.hidden = YES; //隐藏TitleLabel
+
+//  主要有以下UI成员：
+//    coverView2.scrollView
+//    coverView2.pageControl
+//    coverView2.titleLabel
+// 详情请查看接口文件
+
+#warning 修改属性后必须调用updateView方法
+[coverView updateView]; //修改属性后必须调用updateView方法，更新视图
+
+/*
+// 你也可以试着调用init方法创建BWMCoverView
+BWMCoverView *coverView2 = [[BWMCoverView alloc] initWithFrame:self.view.frame];
+[self.view addSubview:coverView2];
+
+coverView2.models = realArray;
+coverView2.placeholderImageNamed = BWMCoverViewDefaultImage;
+coverView2.animationOption = UIViewAnimationOptionTransitionCurlUp;
+
+[coverView2 setCallBlock:^(NSInteger index) {
+    NSLog(@"你点击了第%d个图片", index);
+}];
+
+[coverView2 setScrollViewCallBlock:^(NSInteger index) {
+    NSLog(@"当前滚动到第%d个页面", index);
+}];
 
 
-如果用init创建BWMCoverView，则需要更新视图才能够正常使用
-- (void)updateView;
-
-设置图片点击后的块回调
-- (void)setCallBlock:(void (^)(NSInteger index))callBlock;
-
-设置自动播放
-- (void)setAutoPlayWithDelay:(NSTimeInterval)second;
-
-停止或恢复自动播放（在设置了自动播放时才有效）
-- (void)stopAutoPlayWithBOOL:(BOOL)isStopAutoPlay;
-
- * 设置切换时的动画选项，不设置则默认为scrollView滚动动画
- * 提供的动画类型有：
- *   UIViewAnimationOptionTransitionNone
- *   UIViewAnimationOptionTransitionFlipFromLeft
- *   UIViewAnimationOptionTransitionFlipFromRight
- *   UIViewAnimationOptionTransitionCurlUp
- *   UIViewAnimationOptionTransitionCurlDown
- *   UIViewAnimationOptionTransitionCrossDissolve
- *   UIViewAnimationOptionTransitionFlipFromTop
- *   UIViewAnimationOptionTransitionFlipFromBottom
-- (void)setAnimationOption:(UIViewAnimationOptions)animationOption;
+#warning 修改属性后必须调用updateView方法
+[coverView2 updateView];
+*/
