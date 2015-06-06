@@ -2,10 +2,8 @@
 
 BWMCoverView是一个非常容易使用的广告轮播视图，支持循环滚动、异步加载图片等功能、动画切换，自定义度也非常高。😄
 
-[![card.io logo](https://raw.githubusercontent.com/card-io/card.io-iOS-source/master/Resources/cardio_logo_220.png "card.io")](https://www.card.io)
-
 <p align="center" >
-<img src="http://cdn.cocimg.com/bbs/attachment/Fid_19/19_305672_6f951d2b6a5f3fc.png" width="320" height="568"/>
+<img src="http://cdn.cocimg.com/bbs/attachment/Fid_19/19_305672_6f951d2b6a5f3fc.png" width="375" height="667"/>
 </p>
 
 ## 使用方法
@@ -127,7 +125,8 @@ coverView.titleLabel.hidden = YES; //隐藏TitleLabel
 > * coverView2.scrollView
 > * coverView2.pageControl
 > * coverView2.titleLabel
-> ##### 详情请查看接口文件
+
+详情请查看接口文件`BWMCoverView.h`。
 
 ####  修改属性后必须调用updateView方法
 
