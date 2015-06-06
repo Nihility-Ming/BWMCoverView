@@ -1,19 +1,23 @@
 # BWMCoverView
 
-BWMCoverView是一个非常容易使用的广告轮播视图，支持动画切换，自定义度也非常高。
+BWMCoverView是一个非常容易使用的广告轮播视图，支持循环滚动、异步加载图片等功能、动画切换，自定义度也非常高。😄
 
-[![BWMCoverView ScreenShot](http://cdn.cocimg.com/bbs/attachment/Fid_19/19_305672_6f951d2b6a5f3fc.png "BWMCoverView ScreenShot")]
+[![card.io logo](https://raw.githubusercontent.com/card-io/card.io-iOS-source/master/Resources/cardio_logo_220.png "card.io")](https://www.card.io)
+
+<p align="center" >
+<img src="http://cdn.cocimg.com/bbs/attachment/Fid_19/19_305672_6f951d2b6a5f3fc.png" width="320" height="568"/>
+</p>
 
 ## 使用方法
 
 使用方法也是非常简单，只需要3步。
-> 
+
 > 1. 构建`BWMCoverViewModel`的数组
 > 
 > 2. 使用`BWMCoverView`的工厂方法`+ coverViewWithModels:andFrame:andPlaceholderImageNamed:andClickdCallBlock:`传递必须要的参数
 > 
 > 3. 添加`BWMCoverView`到指定视图
-> 
+
 ### 1.构建一个包含BWMCoverViewModel的数组
 
 ```objc
@@ -44,7 +48,7 @@ BWMCoverView *coverView = [BWMCoverView coverViewWithModels:realArray andFrame:s
 }];
 ```
 
-### 3.添加`BWMCoverView`到指定视图
+### 3.添加到指定视图
 
 ```objc
 [self.view addSubview:coverView];
@@ -113,7 +117,7 @@ coverView.imageViewsContentMode = UIViewContentModeScaleAspectFit;
 [coverView setAnimationOption:UIViewAnimationOptionTransitionCurlUp]; // 设置切换动画
 ```
 
-#### 可选5：设置隐藏TitleLabel
+#### 可选6：设置隐藏TitleLabel
 
 ```objc
 coverView.titleLabel.hidden = YES; //隐藏TitleLabel
@@ -133,9 +137,9 @@ coverView.titleLabel.hidden = YES; //隐藏TitleLabel
 
 ## 协议
 
-BWMCoverView遵循 MIT 协议. 详情请查看blob/gh-pages/README.md
-[LICENSE.md](blob/gh-pages/LICENSE.md).
+BWMCoverView遵循 MIT 协议. 详情请查看
+[LICENSE.md](LICENSE.md).
 
 ## 联系我
 
-有任何问题或建议，请联系我的QQ724849296。
+有任何问题或建议，请联系我的QQ724849296  📱15918550637。
