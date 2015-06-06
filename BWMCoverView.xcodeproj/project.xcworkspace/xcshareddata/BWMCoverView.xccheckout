@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A53CB2AF-A40B-41D5-880B-40F82712799A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BWMCoverView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AB7AAC591253C0B7BEF2306AA58857D71BC0C975</key>
+		<string>https://github.com/Nihility-Ming/BWMCoverView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BWMCoverView.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AB7AAC591253C0B7BEF2306AA58857D71BC0C975</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Nihility-Ming/BWMCoverView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AB7AAC591253C0B7BEF2306AA58857D71BC0C975</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AB7AAC591253C0B7BEF2306AA58857D71BC0C975</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BWMCoverView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

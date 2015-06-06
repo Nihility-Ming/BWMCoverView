@@ -2,9 +2,12 @@
 
 BWMCoverView是一个非常容易使用的广告轮播视图，支持循环滚动、异步加载图片等功能、动画切换，自定义度也非常高。😄
 
-<p align="center" >
-<img src="http://cdn.cocimg.com/bbs/attachment/Fid_19/19_305672_6f951d2b6a5f3fc.png" width="375" height="667"/>
-</p>
+效果图：
+![BWMCoverView](AppScreenShotCase.gif " BWMCoverView")
+
+![BWMCoverView](AppScreenShot_01.gif " BWMCoverView")
+
+![BWMCoverView](AppScreenShot_02.gif " BWMCoverView")
 
 ## 使用方法
 
