@@ -137,6 +137,11 @@ coverView.titleLabel.hidden = YES; //隐藏TitleLabel
 [coverView updateView]; //修改属性后必须调用updateView方法，更新视图
 ```
 
+## 安装方法
+
+* 直接把BWMCoverView Drag到您的工程
+* 使用CocoaPods 来 pod "BWMCoverView"
+
 ## 协议
 
 BWMCoverView遵循 MIT 协议. 详情请查看
