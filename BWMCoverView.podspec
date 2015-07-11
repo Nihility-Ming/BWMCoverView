@@ -26,4 +26,6 @@ s.platform     = :ios, "7.0"
 s.source       = { :git => "https://github.com/Nihility-Ming/BWMCoverView.git", :tag => "0.0.1" }
 s.source_files  = "BWMCoverView/BWMCoverView/*"
 
+s.dependency "SDWebImage", "~> 3.7.2"
+
 end
