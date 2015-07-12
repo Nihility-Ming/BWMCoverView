@@ -3,11 +3,12 @@
 BWMCoverView是一个非常容易使用的广告轮播视图，支持循环滚动、异步加载图片等功能、动画切换，自定义度也非常高。😄
 
 ######效果图：
-![BWMCoverView](AppScreenShotCase.gif " BWMCoverView")
-
-![BWMCoverView](AppScreenShot_01.gif " BWMCoverView")
-
-![BWMCoverView](AppScreenShot_02.gif " BWMCoverView")
+<table align="center">
+    <tr>
+        <td><img src="AppScreenShotCase.gif" /></td>
+        <td><img src="AppScreenShot_01.gif" /></td>
+    </tr>
+</table>
 
 ## 使用方法
 
