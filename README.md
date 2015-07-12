@@ -140,8 +140,9 @@ coverView.titleLabel.hidden = YES; //隐藏TitleLabel
 
 ## 安装方法
 
-* 直接把BWMCoverView Drag到您的工程
-* 使用CocoaPods 来 pod "BWMCoverView"
+使用`CocoaPods`来`pod "BWMCoverView"`
+或者
+直接把`BWMCoverView` **Drag** 到您的工程
 
 ## 协议
 
