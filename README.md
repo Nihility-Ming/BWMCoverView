@@ -1,6 +1,6 @@
 # BWMCoverView
 
-BWMCoverView is a very easy to use advertising the carousel view, supports circular scrolling functions such as switching, asynchronous loading of images, animation, custom is very high.Ì∏Ñ
+BWMCoverView is a very easy to use advertising the carousel view, supports circular scrolling functions such as switching, asynchronous loading of images, animation, custom is very high.
 
 ######ScreenShot
 <table align="center">
@@ -200,6 +200,6 @@ Please view the interfaces file `BWMCoverView.h`.
 
 RESideMenu is available under the MIT license.
 
-## ËÅîÁ≥ªÊàë
+## Contact
 
 If you have any questions or suggestions, contact me `QQ724849296` or call `+8615918550637`, please.
