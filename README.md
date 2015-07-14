@@ -1,8 +1,8 @@
 # BWMCoverView
 
-BWMCoverView是一个非常容易使用的广告轮播视图，支持循环滚动、异步加载图片等功能、动画切换，自定义度也非常高。😄
+BWMCoverView is a very easy to use advertising the carousel view, supports circular scrolling functions such as switching, asynchronous loading of images, animation, custom is very high.���
 
-######效果图：
+######ScreenShot
 <table align="center">
     <tr>
         <td><img src="AppScreenShotCase.gif" /></td>
@@ -10,17 +10,75 @@ BWMCoverView是一个非常容易使用的广告轮播视图，支持循环滚�
     </tr>
 </table>
 
-## 使用方法
+## Requirements
 
-使用方法也是非常简单，只需要3步。
+* Xcode 6 or higher
+* Apple LLVM compiler
+* iOS 6.0 or higher
+* ARC
 
-> 1. 构建`BWMCoverViewModel`的数组
+## Demo
+
+Build and run the `BWMCoverView.xcodeproj` project in Xcode.
+
+## Installation
+
+## CocoaPods
+
+The recommended approach for installating `BWMCoverView` is via the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
+For best results, it is recommended that you install via CocoaPods >= **0.35.0** using Git >= **2.3.2** installed via Homebrew.
+
+Install CocoaPods if not already available:
+
+``` bash
+$ [sudo] gem install cocoapods
+$ pod setup
+```
+
+Change to the directory of your Xcode project:
+
+``` bash
+$ cd /path/to/MyProject
+$ touch Podfile
+$ edit Podfile
+```
+
+Edit your Podfile and add RESideMenu:
+
+``` bash
+platform :ios, '7.0'
+pod 'BWMCoverView', '~> 0.0.1'
+```
+
+Install into your Xcode project:
+
+``` bash
+$ pod install
+```
+
+Open your project in Xcode from the .xcworkspace file (not the usual project file)
+
+``` bash
+$ open MyProject.xcworkspace
+```
+
+Please note that if your installation fails, it may be because you are installing with a version of Git lower than CocoaPods is expecting. Please ensure that you are running Git >= **2.3.2** by executing `git --version`. You can get a full picture of the installation details by executing `pod install --verbose`.
+
+### Manual Install
+
+All you need to do is drop `BWMCoverView` files into your project, and add `#include "BWMCoverView.h"` to the top of classes that will use it.
+
+## Usage
+
+Usage is very simple, just need 3 steps.
+
+> 1. Create array of `BWMCoverViewModel`
 > 
-> 2. 使用`BWMCoverView`的工厂方法`+ coverViewWithModels:andFrame:andPlaceholderImageNamed:andClickdCallBlock:`传递必须要的参数
+> 2. Using `BWMCoverView` factory method `+ coverViewWithModels:andFrame:andPlaceholderImageNamed:andClickdCallBlock:` create the new `BWMCoverView`.
 > 
-> 3. 添加`BWMCoverView`到指定视图
+> 3. Add `BWMCoverView` to view
 
-### 1.构建一个包含BWMCoverViewModel的数组
+### 1.Create array of `BWMCoverViewModel`
 
 ```objc
 // 此数组用来保存BWMCoverViewModel
@@ -35,14 +93,14 @@ for (int i = 0; i<5; i++) {
 
 // 以上代码只为了构建一个包含BWMCoverViewModel的数组而已——realArray
 ```
-### 2.快速创建BWMCoverView
+### 2.Create `BWMCoverView` to the view.
 
-使用`BWMCoverView`的工厂方法`+ coverViewWithModels:andFrame:andPlaceholderImageNamed:andClickdCallBlock:`传递必须要的参数快速创建BWMCoverView。
+Using `BWMCoverView` factory method `+ coverViewWithModels:andFrame:andPlaceholderImageNamed:andClickdCallBlock:` create the new `BWMCoverView`.
 
-参数如下：
-* models是一个包含BWMCoverViewModel的数组
-* placeholderImageNamed为图片加载前的本地占位图片名
-* andClickdCallBlock是点击图片回调的块
+Parameters：
+* `models`: Is an array containing the `BWMCoverViewModel`
+* `placeholderImageNamed`: Local name of the placeholder image
+* `andClickdCallBlock`: Click on the picture to the callback
 
 ```objc
 BWMCoverView *coverView = [BWMCoverView coverViewWithModels:realArray andFrame:self.view.frame andPlaceholderImageNamed:BWMCoverViewDefaultImage andClickdCallBlock:^(NSInteger index) {
@@ -50,17 +108,17 @@ BWMCoverView *coverView = [BWMCoverView coverViewWithModels:realArray andFrame:s
 }];
 ```
 
-### 3.添加到指定视图
+### 3.Add the specified view
 
 ```objc
 [self.view addSubview:coverView];
 ```
 
-实际上，只需以上3句即可创建BWMCoverView了，也可以继续往下看，自定义更多效果
+In fact, more than just 3 sentences to create a `BWMCoverView`, you can also read, more custom effects.
 
-#### 更多创建方法
+#### More create methods
 
-例子：
+Example：
 
 ```objc
 // 你也可以试着调用init方法创建BWMCoverView
@@ -80,9 +138,9 @@ coverView2.animationOption = UIViewAnimationOptionTransitionCurlUp;
 }];
 ```
 
-### 自定义功能选项
+### Customization options
 
-#### 可选1：设置视图每一次滚动都会回调的方法
+#### Option 1: set the view every time scrolling callback methods
 
 ```objc
 [coverView setScrollViewCallBlock:^(NSInteger index) {
@@ -90,65 +148,58 @@ coverView2.animationOption = UIViewAnimationOptionTransitionCurlUp;
 }];
 ```
 
-#### 可选2：设置自动播放
+#### Option 2: set AutoPlay
 
 ```objc
 [coverView setAutoPlayWithDelay:3.0]; 
 ```
 
-其中`3.0`是间距秒数。
+Where '3.0' is the distance in seconds.
 
-#### 可选3：设置图片显示内容模式
+#### Optional 3: set the picture display mode.
 
 ```objc
 coverView.imageViewsContentMode = UIViewContentModeScaleAspectFit;
 ```
 
-支持iOS `UIKit`自带的`enum` `UIViewContentMode`
+This's `enum` `UIViewContentMode`
 
-#### 可选4：停止/恢复自动播放
+#### Option 4: stop/resume auto-play
 
 ```objc
 [coverView stopAutoPlayWithBOOL:YES]; // 停止自动播放
 [coverView stopAutoPlayWithBOOL:NO]; // 恢复自动播放
 ```
 
-#### 可选5：设置切换动画
+#### Optional 5: set the toggle animation
 
 ```objc
 [coverView setAnimationOption:UIViewAnimationOptionTransitionCurlUp]; // 设置切换动画
 ```
 
-#### 可选6：设置隐藏TitleLabel
+#### Optional 6: set hidden `TitleLabel`
 
 ```objc
 coverView.titleLabel.hidden = YES; //隐藏TitleLabel
 ```
 
-##### 主要有以下UI成员：
+##### There are members of the following UI:
 > * coverView2.scrollView
 > * coverView2.pageControl
 > * coverView2.titleLabel
 
-详情请查看接口文件`BWMCoverView.h`。
+Please view the interfaces file `BWMCoverView.h`.
 
-####  修改属性后必须调用updateView方法
+####  After modifying the attribute must call the updateView method
 
 ```objc
 [coverView updateView]; //修改属性后必须调用updateView方法，更新视图
 ```
 
-## 安装方法
+## LICENSE
 
-使用`CocoaPods`来`pod "BWMCoverView"`
-或者
-直接把`BWMCoverView` **Drag** 到您的工程
-
-## 协议
-
-BWMCoverView遵循 MIT 协议. 详情请查看
-[LICENSE.md](LICENSE.md).
+RESideMenu is available under the MIT license.
 
 ## 联系我
 
-有任何问题或建议，请联系我的QQ724849296  📱15918550637。
+If you have any questions or suggestions, contact me `QQ724849296` or call `+8615918550637`, please.
