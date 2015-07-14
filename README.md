@@ -43,7 +43,7 @@ $ touch Podfile
 $ edit Podfile
 ```
 
-Edit your Podfile and add RESideMenu:
+Edit your Podfile and add BWMCoverView:
 
 ``` bash
 platform :ios, '7.0'
@@ -198,7 +198,7 @@ Please view the interfaces file `BWMCoverView.h`.
 
 ## LICENSE
 
-RESideMenu is available under the MIT license.
+`BWMCoverView` is available under the MIT license.
 
 ## Contact
 
