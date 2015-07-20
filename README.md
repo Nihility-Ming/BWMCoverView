@@ -1,7 +1,7 @@
 # BWMCoverView 
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md) 
-[![forks](https://img.shields.io/github/forks/Nihility-Ming/BWMCoverView.svg)]()
+[![forks](https://img.shields.io/github/forks/Nihility-Ming/BWMCoverView.svg)](#)
 [![stars](https://img.shields.io/github/stars/Nihility-Ming/BWMCoverView.svg)](#)
 [![CocoaPods](https://img.shields.io/badge/CocoaPods-Support-green.svg)](#cocoapods)
 
